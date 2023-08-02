@@ -138,7 +138,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
-    , ((modm,               xK_o ), spawn "/home/DeaDvey/scripts/screenshot.sh")   
+    , ((modm,               xK_o ), spawn "~/scripts/screenshot.sh")   
 
 
 
