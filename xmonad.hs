@@ -114,7 +114,7 @@ myModMask       = mod4Mask
 -- Border colors for unfocused and focused windows, respectively.
 --
 myNormalBorderColor  = "#dddddd"
-myFocusedBorderColor = "#ff0000"
+myFocusedBorderColor = "#808080"
 
 -- Compton settings
 myCompton = "compton -b"
@@ -139,12 +139,13 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     , ((modm,               xK_o ), spawn "~/scripts/screenshot.sh")   
-
+    , ((modm,               xK_f ), spawn "terminator && xdotool key n key e key o key f key e key t key c key h key enter")
 
 
     -- launch dmenu
     , ((modm,               xK_d     ), spawn "dmenu_run")
-    , ((modm,               xK_p     ), spawn "rofi -show drun")
+    , ((modm,               xK_p     ), spawn "rofi -show drun -show-icons")
+    , ((modm,               xK_s     ), spawn "rofi -show ssh -show-icons")
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
@@ -274,7 +275,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 --myLayout = noFrillsDeco shrinkText def $
 myLayout = id $
 	smartBorders $
-	        avoidStruts $ spacingWithEdge 16 $
+	        avoidStruts $ spacingWithEdge 14 $
 		        --Full ||| tiled ||| GridRatio (4/3) ||| ThreeColMid 1 (3/100) (1/2) ||| spiral (6/7)
                 Full ||| tiled
 				where
@@ -365,7 +366,7 @@ myStartupHook = do
   spawnOnce "spectacle &"
   spawnOnce "lxappearance &"
   spawnOnce "dunst &"
-  spawnOnce "tint2 &"
+  spawnOnce "~/.config/polybar/launch.sh"
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
 
