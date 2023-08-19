@@ -5,9 +5,9 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["custom/logo", "wlr/workspaces"],
-    "modules-center": ["custom/cmus"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "backlight", "clock", "tray"],
+    "modules-left": ["wlr/workspaces"],
+    "modules-center": ["custom/status", "custom/prev", "custom/play", "custom/pause", "custom/next", "custom/song", "custom/artist"],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "custom/clock", "tray"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -126,19 +126,19 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-ethernet": "{ipaddr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
+        "scroll-step": 5, // %, can be a float
+        "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
+        "format-source": "",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
@@ -164,31 +164,71 @@
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "wlr/workspaces": {
-     	"format": "{icon}",
-        "on-scroll-up": "hyprctl dispatch workspace e+1",
-        "on-scroll-down": "hyprctl dispatch workspace e-1"
-    },
-    "custom/cmus": {
-	"submodules": [
-		{
-			"name": "play",
-			"format": ">",
-			"exec": "cmus-remote -p"
-		},
-		{
-			"name": "pause",
-			"format": "||",
-			"exec": "cmus-remote -u"
-		}
-
-	]
+     	"disable-scroll": true,
+	"on-click": "activate",
+	"all-outputs": true,
+	"persistent-workspaces": {
+		"1": [""],
+		"2": "",
+		"3": "",
+		"4": "",
+		"5": "",
+		"6": "",
+		"7": "",
+		"8": "",
+		"9": ""
+	}
     },
     "custom/logo": {
-	"exec": "echo ''",
+	"exec": "echo ' '",
 	"format": "{}",
 	"interval": 5,
 	"onclick": "notify-send 'hello world'"
 	
+    },
+    "custom/play": {
+	"format": "    ",
+	"interval": 1,
+	"on-click": "cmus-remote -p"
+    },
+    "custom/pause": {
+	"format": "    ",
+	"interval": 1,
+	"on-click": "cmus-remote -u"
+    },
+    "custom/prev": {
+	"format": "    ",
+	"interval": 1,
+	"on-click": "cmus-remote -r"
+    },
+    "custom/next": {
+	"format": "    ",
+	"interval": 1,
+	"on-click": "cmus-remote -n"
+    },
+    "custom/song": {
+    	"exec": "cmus-remote -Q | grep 'tag title' | sed 's/tag title //'",
+	"format": "{}",
+	"interval": 1,
+	"on-click": "~/.config/waybar/open-song.sh"
+    },
+    "custom/artist": {
+    	"exec": "cmus-remote -Q | grep 'tag artist' | sed 's/tag artist //'",
+	"format": " by {}",
+	"interval": 1,
+	"on-click": "~/.config/waybar/open-artist.sh"
+    },
+    "custom/status": {
+    	"exec": "cmus-remote -Q | grep 'status' | sed 's/status //'",
+	"format": "{}",
+	"interval": 1
+    },
+    "custom/clock": {
+	"exec": "date +' %d/%m/%Y | %I:%M:%S %P  '",
+	"format": "{}",
+	"interval": 1,
+	"on-click": "flatpak run org.kde.kclock"
     }
+    
 }
 
