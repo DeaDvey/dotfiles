@@ -208,13 +208,15 @@
     },
     "custom/song": {
     	"exec": "cmus-remote -Q | grep 'tag title' | sed 's/tag title //'",
-	"format": "{}",
+	"format": "'{}'",
+	"max-length": 25,
 	"interval": 1,
 	"on-click": "~/.config/waybar/open-song.sh"
     },
     "custom/artist": {
     	"exec": "cmus-remote -Q | grep 'tag artist' | sed 's/tag artist //'",
-	"format": " by {}",
+	"format": "by {}",
+	"max-length": 16,
 	"interval": 1,
 	"on-click": "~/.config/waybar/open-artist.sh"
     },
