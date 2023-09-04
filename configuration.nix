@@ -15,6 +15,14 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  nixpkgs.overlays = [
+	(self: super: {
+		waybar = super.waybar.overrideAttrs (oldAttrs: {
+			mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+		});	
+	})
+  ];
+
   services.flatpak.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   xdg.portal.enable = true;
@@ -57,6 +65,7 @@
   #KDE
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.displayManager.defaultSession = "plasmawayland";
 
 
   # Configure keymap in X11
@@ -70,6 +79,8 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+
+  
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -125,6 +136,12 @@
       jetbrains-mono
       lxappearance
       gparted
+      python3
+      dropbox
+      lutris
+      polkit_gnome
+      notepadqq
+      mpvpaper
     ];
   };
 
@@ -142,13 +159,29 @@
      unzip 
      git 
      maim
-     xclip
-     xprop
      arandr
-     xrandr
      grim
      slurp
   ];
+
+  systemd = {
+    user.services.polkit-gnome-authentication-agent-1 = {
+      description = "polkit-gnome-authentication-agent-1";
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      serviceConfig = {
+          Type = "simple";
+          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+          Restart = "on-failure";
+          RestartSec = 1;
+          TimeoutStopSec = 10;
+        };
+    };
+     extraConfig = ''
+       DefaultTimeoutStopSec=10s
+     '';
+  }; 
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
