@@ -360,7 +360,7 @@ myStartupHook = do
   spawnOnce "~/.screenlayout/main.sh"
   spawnOnce "nitrogen --restore &"
   --spawn "compton -b"
-  spawnOnce "picom --experimental-backend -b"
+  spawnOnce "picom -b"
   spawnOnce "xmobar &"
   spawnOnce "ARandR --restore &"
   spawnOnce "spectacle &"
