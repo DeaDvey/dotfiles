@@ -31,21 +31,21 @@ tooltip {
 }
 
 #workspaces button.focused {
-    color: #928374;
+    color: #b16286;
     background: #fbf1c7;
     border-radius: 10px;
 }
 
 #workspaces button.urgent {
-    color: #11111b;
-    background: #a6e3a1;
+    color: #cc241d;
+    background: #458588;
     border-radius: 10px;
 }
 
 #workspaces button:hover {
     background: #fbf1c7;
     color: #928374;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 #custom-language,
@@ -63,7 +63,8 @@ tooltip {
 #cpu,
 #memory,
 #custom-clock,
-#wlr-workspaces{
+#wlr-workspaces,
+#custom-logo{
     background: #282828;
     padding: 0px 10px;
     margin: 3px 0px;
@@ -146,6 +147,13 @@ tooltip {
     border-right: 0px;
 }
 
+#custom-logo {
+		color: #98971a;
+		border-radius: 15px;
+		margin-left: 5px;
+		border-right: 0px;
+}
+
 #clock, #custom-clock {
     color: #d65d0e;
     border-radius: 15px;
@@ -154,7 +162,7 @@ tooltip {
 }
 
 #network {
-    color: #ebdbb2;
+    color: #cc241d;
     border-left: 0px;
     border-right: 0px;
     border-radius: 15px;

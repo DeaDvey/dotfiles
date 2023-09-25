@@ -9,7 +9,8 @@
 window {
     background-color: @background;
     border:           2;
-    padding:          2;
+    padding:          5;
+	border-radius:    15;
 }
 
 mainbox {
@@ -34,6 +35,7 @@ listview {
     border-color: @separatorcolor;
     spacing:      2px;
     scrollbar:    @scrollbar;
+
 }
 
 element {
@@ -87,10 +89,10 @@ element.alternate.active {
 }
 
 scrollbar {
-    width:        4px;
+    width:        0px;
     border:       0;
     handle-color: @scrollbar-handle;
-    handle-width: 8px;
+    handle-width: 0px;
     padding:      0;
 }
 
@@ -101,9 +103,10 @@ sidebar {
 
 inputbar {
     spacing:    0;
-    text-color: @normal-foreground;
+    text-color: @gruvbox-dark-orange-dark;
     padding:    2px;
-    children:   [ prompt, textbox-prompt-sep, entry, case-indicator ];
+    children:   [ entry, case-indicator ];
+
 }
 
 case-indicator,
@@ -115,12 +118,12 @@ button {
 }
 
 button.selected {
-    background-color: @selected-normal-background;
-    text-color:       @selected-normal-foreground;
+    background-color: @selected-normal-foreground;
+    text-color:       @gruvbox-dark-orange-dark;
 }
 
 textbox-prompt-sep {
-    expand:     false;
+    expand:     true;
     str:        ":";
     text-color: @normal-foreground;
     margin:     0 0.3em 0 0;

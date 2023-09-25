@@ -168,7 +168,7 @@
 	"on-click": "activate",
 	"all-outputs": true,
 	"persistent-workspaces": {
-		"1": "",
+		".": ".",
 		"2": "",
 		"3": "",
 		"4": "",
@@ -180,7 +180,7 @@
 	}
     },
     "custom/logo": {
-	"exec": "echo ' '",
+	"exec": "echo ''",
 	"format": "{}",
 	"interval": 5,
 	"onclick": "notify-send 'hello world'"

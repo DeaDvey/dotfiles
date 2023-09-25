@@ -26,19 +26,21 @@
     gruvbox-dark-red-light:    #fb4934;
     gruvbox-dark-yellow-dark:  #d79921;
     gruvbox-dark-yellow-light: #fabd2f;
+	gruvbox-dark-green-dark:   #98971a;
+	gruvbox-dark-orange-dark:  #d65d0e;
     gruvbox-dark-gray:         #a89984;
 
     /* Theme colors */
     background:                  @gruvbox-dark-bg0;
     background-color:            @background;
-    foreground:                  @gruvbox-dark-fg1;
+    foreground:                  @gruvbox-dark-green-dark;
     border-color:                @gruvbox-dark-gray;
     separatorcolor:              @border-color;
     scrollbar-handle:            @border-color;
 
     normal-background:           @background;
     normal-foreground:           @foreground;
-    alternate-normal-background: @gruvbox-dark-bg0-soft;
+    alternate-normal-background: @background;
     alternate-normal-foreground: @foreground;
     selected-normal-background:  @gruvbox-dark-bg3;
     selected-normal-foreground:  @gruvbox-dark-fg0;
