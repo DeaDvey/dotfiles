@@ -5,9 +5,9 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["wlr/workspaces"],
+    "modules-left": ["hyprland/workspaces", "network"],
     "modules-center": ["custom/status", "custom/prev", "custom/play", "custom/pause", "custom/next", "custom/song", "custom/artist"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "custom/clock", "tray"],
+    "modules-right": ["pulseaudio", "cpu", "memory", "custom/clock", "tray"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -163,7 +163,7 @@
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
      	"disable-scroll": true,
 	"on-click": "activate",
 	"all-outputs": true,
@@ -180,7 +180,7 @@
 	}
     },
     "custom/logo": {
-	"exec": "echo ' '",
+	"exec": "echo ' '",
 	"format": "{}",
 	"interval": 5,
 	"onclick": "notify-send 'hello world'"
@@ -215,7 +215,7 @@
     },
     "custom/artist": {
     	"exec": "cmus-remote -Q | grep 'tag artist' | sed 's/tag artist //'",
-	"format": "by {}",
+	"format": "{}",
 	"max-length": 16,
 	"interval": 1,
 	"on-click": "~/.config/waybar/open-artist.sh"

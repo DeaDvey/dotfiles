@@ -62,9 +62,9 @@ tooltip {
 #backlight,
 #cpu,
 #memory,
-#custom-clock
+#custom-clock,
 #wlr-workspaces{
-    background: #272727;
+    background: #282828;
     padding: 0px 10px;
     margin: 3px 0px;
     margin-top: 10px;
@@ -78,9 +78,13 @@ tooltip {
 #custom-next,
 #custom-song,
 #custom-artist {
+    background: #282828;
     padding: 0px 5px;
     margin: 1px 0px;
     margin-top: 10px;
+	border: 2px solid #928374;
+	border-radius: 15px;
+	color: #ebdbb2;
 }
 
 #custom-status:hover,
@@ -97,13 +101,13 @@ tooltip {
 }
 
 #tray {
-    border-radius: 10px;
+    border-radius: 15px;
     margin-right: 10px;
 }
 
 #workspaces {
     background: #272727;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-left: 10px;
     padding-right: 0px;
     padding-left: 5px;
@@ -130,37 +134,37 @@ tooltip {
 }
 
 #window {
-    border-radius: 10px;
+    border-radius: 15px;
     margin-left: 60px;
     margin-right: 60px;
 }
 
 #cpu, #memory {
-    color: #9ECE6A;
-    border-radius: 10px 10px 10px 10px;
+    color: #98971a;
+    border-radius: 15px;
     margin-left: 5px;
     border-right: 0px;
 }
 
 #clock, #custom-clock {
-    color: #fab387;
-    border-radius: 10px 10px 10px 10px;
+    color: #d65d0e;
+    border-radius: 15px;
     margin-left: 5px;
     border-right: 0px;
 }
 
 #network {
-    color: #f9e2af;
+    color: #ebdbb2;
     border-left: 0px;
     border-right: 0px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 #pulseaudio {
-    color: #89b4fa;
+    color: #458588;
     border-left: 0px;
     border-right: 0px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 #pulseaudio.microphone {
