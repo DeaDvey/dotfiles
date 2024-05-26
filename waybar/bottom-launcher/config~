@@ -1,0 +1,56 @@
+{
+	"layer": "bottom",
+	"position": "bottom",
+	"height": 38,
+	"margin": 5,
+	"width": 250,
+	"modules-left": [		
+	],
+	"modules-center": [
+		"custom/launch-terminal",
+		"custom/launch-browser",
+		"custom/launch-steam",
+		"custom/launch-matrix",
+		"custom/launch-vpn",
+		"custom/launch-nextcloud",
+		"custom/launch-emacs",
+		"custom/launch-fm"
+	],
+	"modules-right": [
+	],
+    "custom/launch-terminal": {
+    	"format": "  ",
+	"on-click": "sleep 0.1 && mullvad-exclude terminator",
+	"tooltip": false
+    },
+    "custom/launch-browser": {
+    	"format": "  ",
+	"on-click": "sleep 0.1 && firefox",
+	"tooltip": false
+    },
+    "custom/launch-steam": {
+    	"format": "  ",
+	"on-click": "sleep 0.1 && steam",
+	"tooltip": false
+    },
+    "custom/launch-matrix": {
+    	"format": "  ",
+	"on-click": "sleep 0.1 && flatpak run im.riot.Riot"
+    },
+    "custom/launch-vpn": {
+    	"format": "  ",
+	"on-click": "sleep 0.1 && mullvad-vpn"
+    },
+    "custom/launch-nextcloud": {
+    	"format": "  ",
+	"on-click": "sleep 0.1 && nextcloud"
+    },
+    "custom/launch-emacs": {
+    	"format": " ",
+	"on-click": "sleep 0.1 && emacs"
+    },
+    "custom/launch-fm": {
+    	"format": "  ",
+	"on-click": "sleep 0.1 && nautilus"
+     }
+}

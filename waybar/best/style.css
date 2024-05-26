@@ -2,15 +2,14 @@
  * General 
  * ----------------------------------------------------- */
 * {
-	font-size: 12px;
+	font-size: 16px;
 	font-family: Font Awesome, Ubuntu Nerd Font, sans-serif;
-	font-weight: bold;
-	min-height: 0;
+    font-weight: bold;
 }
 
 window#waybar {
-	background-color: #000000;
-    /*border-bottom: 2px solid #ebdbb2;*/
+	background-color: rgba(0,0,0,1);
+    border-bottom: 1px solid rgba(26,27,38,0);
     border-radius: 0px;
 	color: #f8f8f2;
 }
@@ -24,7 +23,7 @@ window#waybar {
  * ----------------------------------------------------- */
 #workspaces {
 	background: #ebdbb2;
-    margin: 5px 3px 5px 5px;
+    margin: 5px 3px 5px 12px;
     padding: 0px 1px;
     border-radius: 15px;
     border: 0px;
@@ -46,7 +45,7 @@ window#waybar {
 }
 
 #workspaces button {
-    padding: 0px 0px;
+    padding: 0px 5px;
     margin: 4px 3px;
     border-radius: 15px;
     border: 0px;
@@ -79,7 +78,7 @@ window#waybar {
 tooltip {
   background: #1a1b26;
   border: 1px solid #7aa2f7;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 tooltip label {
@@ -113,10 +112,9 @@ tooltip label {
     padding: 2px 10px;
 }
 
-#clock,
-#custom-bin-clock {
+#clock {
     color: #3c3836;
-    background: #d3869b;
+    background: #b12686;
     border-radius: 15px;
     margin: 5px;
     padding: 2px 10px;
@@ -137,7 +135,7 @@ tooltip label {
     border-radius: 15px;
     margin: 5px;
     padding: 2px 10px;
-}nsfw
+}
 
 #disk {
     color: #3c3836;
@@ -228,12 +226,3 @@ tooltip * {
 #custom-cmussong {
     color: #ebdbb2
 }
-
-#custom-power-menu {
-    color: #ebdbb2;
-    background: #fb4934;
-    border-radius: 15px;
-    margin: 5px;
-    padding: 5px 1px;
-}
-

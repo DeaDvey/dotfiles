@@ -1,16 +1,14 @@
 {
 	"layer": "bottom",
 	"position": "top",
-	"height": 35,
-	"margin-top": 0,
-	"margin-bottom": 0,
+	
 	"modules-left": [
-		"custom/power-menu",
 		"hyprland/workspaces",
-		"network"
+		"network"		
 	],
 	"modules-center": [
-		"clock"
+		"clock",
+		"cava"
 	],
 	"modules-right": [
 		"custom/cmusartist",
@@ -64,7 +62,7 @@
                     "on-scroll-up": "shift_up",
                     "on-scroll-down": "shift_down"
                     }
-    	},
+    },
 	"custom/updownspeed": {                                                                           
                 "exec": "~/scripts/updown.sh",                                                            
                 "interval": 1                                                                             
@@ -145,7 +143,7 @@
 	
 	"custom/server-cmussong": {
 		"interval": 1,
-		"exec": "/home/deadvey/media/Code/scripts/returncmussong.sh",
+		"exec": "/home/deadvey/scripts/returncmussong.sh",
 		"format": "  {}  "
 	},
 	"custom/server-cmusartist": {
@@ -186,19 +184,17 @@
 	
 	"custom/cmussong": {
 		"interval": 1,
-		"exec": "/home/deadvey/media/Code/scripts/localcmussong.sh",
-		"on-click": "/home/deadvey/media/Code/scripts/openalbum.sh", 
+		"exec": "/home/deadvey/scripts/localcmussong.sh",
 		"format": "  {}  "
 	},
 	"custom/cmusartist": {
 		"interval": 1,
 		"exec": "cmus-remote -Q | grep 'tag artist' | sed 's/tag artist //'",
-		"on-click": "/home/deadvey/media/Code/scripts/openalbum.sh",
-		"format": "  {}  |"
+		"format": "  {}"
 		
 	},
 	"custom/cmusvolcontrol": {
-		"format": "    {} ",
+		"format": "  {} ",
 		"interval": 1,
 		"exec": "cmus-remote -Q | grep 'set vol_left' | sed 's/set vol_left //'",
 		"on-scroll-up": "cmus-remote -v +5%",
@@ -274,15 +270,5 @@
         "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
         "on-click": "",
         "tooltip": false
-    },
-    "custom/power-menu": {
-    	"format": "   ",
-	"on-click": "rofi --config gruvbox-common.rasi -show power-menu -modi power-menu:rofi-power-menu",
-	"tooltip": false
-    },
-    "custom/bin-clock": {
-    	"format": "   {}   ",
-	"exec": "python3 /home/deadvey/media/code/python/bin-clock/bin-clock.py",
-	"interval": 1
     }
 }

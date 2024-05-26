@@ -1,0 +1,171 @@
+{
+	"layer": "bottom",
+	"position": "top",
+	
+	"modules-left": [
+		"hyprland/workspaces",
+		"network",
+		"custom/updownspeed",
+		"custom/servervoldown",
+		"custom/servervolup"
+	],
+	"modules-center": [
+		"clock",
+		"cava"
+	],
+	"modules-right": [
+		"cpu",
+		"memory",
+        "pulseaudio",
+		"tray"
+	],
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "default": " ",
+            "active": " ",
+            "urgent": " "
+            /* "default": "", */
+            /* "active": "", */
+            /* "urgent": "" */
+	    },
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+    },
+	"clock": {
+	    "interval": 1,
+        "format": "{:%d/%m/%Y  %I:%M:%S %p}",
+		"tooltip": false,
+		"on-click": "merkuro-calendar"
+	},
+	"custom/updownspeed": {
+		"exec": "~/scripts/updown.sh",
+		"interval": 5
+	},
+	"cava": {
+//        "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
+        "framerate": 30,
+        "autosens": 1,
+        "sensitivity": 100,
+        "bars": 14,
+        "lower_cutoff_freq": 50,
+        "higher_cutoff_freq": 10000,
+        "method": "pulse",
+        "source": "auto",
+        "stereo": true,
+        "reverse": false,
+        "bar_delimiter": 0,
+        "monstercat": false,
+        "waves": false,
+        "noise_reduction": 0.77,
+        "input_delay": 2,
+        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+        "actions": {
+                   "on-click-right": "mode"
+                   }
+    },
+	"hyprland/window": {
+		"max-length": 60,
+		"separate-outputs": false
+	},
+	"memory": {
+		"interval": 5,
+		"format": " {}%",
+		"on-click": "flatpak run io.github.hakandundar34coding.mini-system-monitor"
+	},
+	"cpu": {
+		"interval": 5,
+		"format": " {usage:2}%",
+        "tooltip": false,
+		"on-click": "flatpak run io.github.hakandundar34coding.mini-system-monitor"
+	},
+    "disk": {
+        "format": "  {free}/{total}",
+        "tooltip": false
+    },
+	"custom/packages": {
+		"exec": "~/.local/bin/packagecount",
+		"format": " {}",
+		"interval": 45
+	},
+	"custom/servervoldown": {
+		"format": " - ",
+		"interval": 1,
+		"on-click": "ssh -p 22 max@192.168.1.118 pactl set-sink-volume @DEFAULT_SINK@ -5%"
+	},
+	"custom/servervolup": {                                                                               
+                "format": " + ",                                                                              
+                "interval": 1,                                                                                                  "on-click": "ssh -p 22 max@192.168.1.118 pactl set-sink-volume @DEFAULT_SINK@ +5%"            
+        }, 
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}  ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "network#wifi": {
+        "interval": 1,
+        "interface": "wlp6s0",
+        //"interface": "wlp62s0",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "format-wifi": "{icon} {signalStrength}%",
+        "format-disconnected": "󰤮",
+        "tooltip": false,
+    },
+	"tray": {
+		//"icon-size": 24,
+		"spacing": 12
+	},
+    "pulseaudio": {
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon} {}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": "",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "escape": true
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󱘖 {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "on-click": "",
+        "tooltip": false
+    }
+}

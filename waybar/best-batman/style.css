@@ -2,15 +2,14 @@
  * General 
  * ----------------------------------------------------- */
 * {
-	font-size: 12px;
+	font-size: 16px;
 	font-family: Font Awesome, Ubuntu Nerd Font, sans-serif;
-	font-weight: bold;
-	min-height: 0;
+    font-weight: bold;
 }
 
 window#waybar {
-	background-color: #000000;
-    /*border-bottom: 2px solid #ebdbb2;*/
+	background-color: rgba(0,0,0,1);
+    border-bottom: 1px solid rgba(26,27,38,0);
     border-radius: 0px;
 	color: #f8f8f2;
 }
@@ -23,13 +22,13 @@ window#waybar {
  * Workspaces 
  * ----------------------------------------------------- */
 #workspaces {
-	background: #ebdbb2;
-    margin: 5px 3px 5px 5px;
+	background: #eceff4;
+    margin: 5px 3px 5px 12px;
     padding: 0px 1px;
     border-radius: 15px;
     border: 0px;
     font-style: normal;
-    color: #282828;
+    color: #3c3836;
 }
 #custom-music.Playing {
     background: #458588;
@@ -46,19 +45,19 @@ window#waybar {
 }
 
 #workspaces button {
-    padding: 0px 0px;
+    padding: 0px 5px;
     margin: 4px 3px;
     border-radius: 15px;
     border: 0px;
-    color: #282828;
-    background-color: #83a598;
+    color: #3c3836;
+    background-color: #81a1c1;
     opacity: 0.5;
     transition: all 0.3s ease-in-out;
 }
 
 #workspaces button.active {
-    color: #458588;
-    background: #458588;
+    color: #5e81ac;
+    background: #5e81ac;
     border-radius: 15px;
     min-width: 40px;
     transition: all 0.3s ease-in-out;
@@ -66,8 +65,8 @@ window#waybar {
 }
 
 #workspaces button:hover {
-    color: #282828;
-    background: #282828;
+    color: #3c3836;
+    background: #3c3836;
     border-radius: 15px;
     opacity: 1.0;
 }
@@ -79,7 +78,7 @@ window#waybar {
 tooltip {
   background: #1a1b26;
   border: 1px solid #7aa2f7;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 tooltip label {
@@ -107,16 +106,15 @@ tooltip label {
 
 #memory {
     color: #15161e;
-    background: #fe8019;
+    background: #ffff00;
     border-radius: 15px;
     margin: 5px;
     padding: 2px 10px;
 }
 
-#clock,
-#custom-bin-clock {
+#clock {
     color: #3c3836;
-    background: #d3869b;
+    background: #ffff00;
     border-radius: 15px;
     margin: 5px;
     padding: 2px 10px;
@@ -133,11 +131,11 @@ tooltip label {
 
 #cpu {
     color: #3c3836;
-    background: #83a598;
+    background: #ffff00;
     border-radius: 15px;
     margin: 5px;
     padding: 2px 10px;
-}nsfw
+}
 
 #disk {
     color: #3c3836;
@@ -157,15 +155,15 @@ tooltip label {
 
 #network {
     color: #3c3836;
-    background: #fabd2f;
+    background: #ffff00;
     border-radius: 15px;
     margin: 5px;
     padding: 2px 10px;
 }
 
 #tray {
-    color: #3c3836;
-    background: #3c3836;
+    color: #000000;
+    background: #000000;
     border-radius: 15px;
     margin: 5px;
     padding: 2px 10px;
@@ -173,7 +171,7 @@ tooltip label {
 
 #pulseaudio {
     color: #3c3836;
-    background: #d8dee9;
+    background: #ffff00;
     border-radius: 15px;
     margin: 5px;
     padding: 2px 10px;
@@ -186,54 +184,11 @@ tooltip label {
     margin: 5px;
     padding: 2px 10px;
 }
-#custom-notification {                                                                                    
-    color: #15161e;                                                                                       
-    background: #cc241d;                                                                                  
-    border-radius: 15px;                                                                                  
-    margin: 5px;                                                                                          
-    padding: 2px 10px;                                                                                    
-}
+
 #custom-updownspeed {
-    color: #15161e;                                                                                                                                                                                                                
-    background: #689d6a;                                                                                                                                                                                                            
-    border-radius: 15px;                                                                                                                                                                                                            
-    margin: 5px;                                                                                                                                                                                                                    
-    padding: 2px 10px;
-}
-
-tooltip {
-  color: #ebdbb2;
-  background-color: #282828;
-  text-shadow: none;
-}
-
-tooltip * {
-  color: #ebdbb2;
-  text-shadow: none;
-}
-
-#custom-servervolcontrol,
-#custom-server-prev,
-#custom-server-pause,
-#custom-server-play,
-#custom-server-next,
-#custom-server-cmusartist,
-#custom-server-cmussong,
-#custom-cmusvolcontrol,
-#custom-cmus-prev,
-#custom-cmus-pause,
-#custom-cmus-play,
-#custom-cmus-next,
-#custom-cmusartist,
-#custom-cmussong {
-    color: #ebdbb2
-}
-
-#custom-power-menu {
-    color: #ebdbb2;
-    background: #fb4934;
+    background: #ffff00;
+    color: #000000;
     border-radius: 15px;
     margin: 5px;
-    padding: 5px 1px;
+    padding: 2px 10px;
 }
-

@@ -9,9 +9,9 @@
 }
 
 window#waybar {
-	background-color: #000000;
-    /*border-bottom: 2px solid #ebdbb2;*/
-    border-radius: 0px;
+	background-color: #282828;
+	border-left: 2px solid #ebdbb2;
+	border-radius: 0px;
 	color: #f8f8f2;
 }
 

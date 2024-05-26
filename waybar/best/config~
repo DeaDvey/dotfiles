@@ -1,29 +1,21 @@
 {
 	"layer": "bottom",
 	"position": "top",
-	"height": 35,
-	"margin-top": 0,
-	"margin-bottom": 0,
+	
 	"modules-left": [
-		"custom/power-menu",
 		"hyprland/workspaces",
-		"network"
+		"network",
+		"custom/servervoldown",
+		"custom/servervolup"
 	],
 	"modules-center": [
-		"clock"
+		"clock",
+		"cava"
 	],
 	"modules-right": [
-		"custom/cmusartist",
-		"custom/cmussong",
-		"custom/cmus-prev",
-		"custom/cmus-pause",
-		"custom/cmus-play",
-		"custom/cmus-next",
-		"custom/cmusvolcontrol",
-		
 		"cpu",
 		"memory",
-        	"pulseaudio",
+        "pulseaudio",
 		"tray"
 	],
     "hyprland/workspaces": {
@@ -39,41 +31,16 @@
         "on-scroll-up": "hyprctl dispatch workspace e+1",
         "on-scroll-down": "hyprctl dispatch workspace e-1",
     },
-    "clock": {
-        "format": "{:%d/%m/%Y   %I:%M:%S}  ",
-	"interval": 1,
-        "format-alt": "{:%A, %B %d, %Y    %I:%M:%S}  ",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "calendar": {
-                    "mode"          : "year",
-                    "mode-mon-col"  : 3,
-                    "weeks-pos"     : "right",
-                    "on-scroll"     : 1,
-                    "format": {
-                              "months":     "<span color='#ebdbb2'><b>{}</b></span>",
-                              "days":       "<span color='#d3869b'><b>{}</b></span>",
-                              "weeks":      "<span color='#83a598'><b>W{}</b></span>",
-                              "weekdays":   "<span color='#fe8019'><b>{}</b></span>",
-                              "today":      "<span color='#b8bb26'><b><u>{}</u></b></span>"
-                              }
-                    },
-        "actions":  {
-                    "on-click-right": "mode",
-                    "on-click-forward": "tz_up",
-                    "on-click-backward": "tz_down",
-                    "on-scroll-up": "shift_up",
-                    "on-scroll-down": "shift_down"
-                    }
-    	},
+	"clock": {
+	    "interval": 1,
+        "format": "{:%d/%m/%Y  %I:%M:%S %p}",
+		"tooltip": false,
+		"on-click": "merkuro-calendar"
+	},
 	"custom/updownspeed": {                                                                           
                 "exec": "~/scripts/updown.sh",                                                            
                 "interval": 1                                                                             
         },
-	"custom/clock": {
-		"interval": 1,
-		"exec": "date +'%d/%m/%Y  %I:%M:%S:%N %p'",
-		"format": " {}"
-	},
 	"cava": {
 //        "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
         "framerate": 30,
@@ -108,102 +75,27 @@
 	"cpu": {
 		"interval": 5,
 		"format": " {usage:2}%",
-        	"tooltip": false,
+        "tooltip": false,
 		"on-click": "flatpak run io.github.hakandundar34coding.mini-system-monitor"
 	},
-    	"disk": {
-            "format": "  {free}/{total}",
-        	  "tooltip": false
-    	},
+    "disk": {
+        "format": "  {free}/{total}",
+        "tooltip": false
+    },
 	"custom/packages": {
 		"exec": "~/.local/bin/packagecount",
 		"format": " {}",
 		"interval": 45
 	},
-	"custom/server-play": {
+	"custom/servervoldown": {
+		"format": " - ",
 		"interval": 1,
-		"on-click": "ssh -p 22 max@192.168.1.118 cmus-remote -p",
-		"format": "  "
+		"on-click": "ssh -p 22 max@192.168.1.118 pactl set-sink-volume @DEFAULT_SINK@ -5%"
 	},
-	"custom/server-pause": {
-		"interval": 1,
-		"on-click": "ssh -p 22 max@192.168.1.118 cmus-remote -u",
-		"format": "  "
-	},
-	
-	"custom/server-next": {
-		"interval": 1,
-		"on-click": "ssh -p 22 max@192.168.1.118 cmus-remote -n",
-		"format": "  "
-	},
-	
-	"custom/server-prev": {
-		"interval": 1,
-		"on-click": "ssh -p 22 max@192.168.1.118 cmus-remote -r",
-		"format": "  "
-	},
-	
-	"custom/server-cmussong": {
-		"interval": 1,
-		"exec": "/home/deadvey/media/Code/scripts/returncmussong.sh",
-		"format": "  {}  "
-	},
-	"custom/server-cmusartist": {
-		"interval": 1,
-		"exec": "ssh -p 22 max@192.168.1.118 cmus-remote -Q | grep 'tag artist' | sed 's/tag artist //'",
-		"format": "  {}"
-		
-	},
-	"custom/servervolcontrol": {
-		"format": "  {} ",
-		"interval": 1,
-		"exec": "ssh -p 22 max@192.168.1.118 cmus-remote -Q | grep 'set vol_left' | sed 's/set vol_left //'",
-		"on-scroll-up": "ssh -p 22 max@192.168.1.118 cmus-remote -v +5%",
-		"on-scroll-down": "ssh -p 22 max@192.168.1.118 cmus-remote -v -5%"
-	},
-	"custom/cmus-play": {
-		"interval": 1,
-		"on-click": "cmus-remote -p",
-		"format": "  "
-	},
-	"custom/cmus-pause": {
-		"interval": 1,
-		"on-click": "cmus-remote -u",
-		"format": "  "
-	},
-	
-	"custom/cmus-next": {
-		"interval": 1,
-		"on-click": "cmus-remote -n",
-		"format": "  "
-	},
-	
-	"custom/cmus-prev": {
-		"interval": 1,
-		"on-click": "cmus-remote -r",
-		"format": "  "
-	},
-	
-	"custom/cmussong": {
-		"interval": 1,
-		"exec": "/home/deadvey/media/Code/scripts/localcmussong.sh",
-		"on-click": "/home/deadvey/media/Code/scripts/openalbum.sh", 
-		"format": "  {}  "
-	},
-	"custom/cmusartist": {
-		"interval": 1,
-		"exec": "cmus-remote -Q | grep 'tag artist' | sed 's/tag artist //'",
-		"on-click": "/home/deadvey/media/Code/scripts/openalbum.sh",
-		"format": "  {}  |"
-		
-	},
-	"custom/cmusvolcontrol": {
-		"format": "    {} ",
-		"interval": 1,
-		"exec": "cmus-remote -Q | grep 'set vol_left' | sed 's/set vol_left //'",
-		"on-scroll-up": "cmus-remote -v +5%",
-		"on-scroll-down": "cmus-remote -v -5%"
-	},
+	"custom/servervolup": {                                                                               
+                "format": " + ",                                                                              
+                "interval": 1,                                                                                                  "on-click": "ssh -p 22 max@192.168.1.118 pactl set-sink-volume @DEFAULT_SINK@ +5%"            
+        }, 
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
@@ -274,15 +166,5 @@
         "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
         "on-click": "",
         "tooltip": false
-    },
-    "custom/power-menu": {
-    	"format": "   ",
-	"on-click": "rofi --config gruvbox-common.rasi -show power-menu -modi power-menu:rofi-power-menu",
-	"tooltip": false
-    },
-    "custom/bin-clock": {
-    	"format": "   {}   ",
-	"exec": "python3 /home/deadvey/media/code/python/bin-clock/bin-clock.py",
-	"interval": 1
     }
 }

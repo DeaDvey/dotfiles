@@ -1,0 +1,28 @@
+/* -----------------------------------------------------
+ * General 
+ * ----------------------------------------------------- */
+* {
+	font-size: 16px;
+	font-family: Ubuntu Nerd Font, Font Awesome, sans-serif;
+    font-weight: bold;
+    min-height: 30px;
+}
+
+window#waybar {
+	background-color: rgba(26,27,38,0.4);
+    border-bottom: 1px solid rgba(26,27,38,0);
+    border-radius: 0px;
+	color: #f8f8f2;
+	margin: 20px;
+}
+
+window#waybar {
+  border-radius: 15px 15px 0px 0px;
+}
+
+window#waybar {
+  
+  background-color: transparent;
+  box-shadow: 0 -10px 0 0 rgba(235,219,178,1);
+}
+
