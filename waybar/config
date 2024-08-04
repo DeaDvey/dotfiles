@@ -7,7 +7,8 @@
 	"modules-left": [
 		"custom/power-menu",
 		"hyprland/workspaces",
-		"network"
+		"network",
+		"custom/refresh-waybar"
 	],
 	"modules-center": [
 		"clock"
@@ -284,5 +285,9 @@
     	"format": "   {}   ",
 	"exec": "python3 /home/deadvey/media/code/python/bin-clock/bin-clock.py",
 	"interval": 1
+    },
+    "custom/refresh-waybar": {
+    	"format": " ",
+	"on-click": "/home/deadvey/media/Code/scripts/waybar.sh"
     }
 }

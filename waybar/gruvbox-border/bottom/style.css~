@@ -10,9 +10,9 @@
 
 window#waybar {
 	background-color: #282828;
-    border-bottom: 2px solid #D2B48C;
+    border-bottom: 2px solid #ebdbb2;
     border-radius: 0px;
-    color: #f8f8f2;
+	color: #f8f8f2;
 }
 
 
@@ -23,7 +23,7 @@ window#waybar {
  * Workspaces 
  * ----------------------------------------------------- */
 #workspaces {
-	background: #D2B48C;
+	background: #ebdbb2;
     margin: 5px 3px 5px 5px;
     padding: 0px 1px;
     border-radius: 15px;
@@ -202,13 +202,13 @@ tooltip label {
 }
 
 tooltip {
-  color: #D2B48C;
+  color: #ebdbb2;
   background-color: #282828;
   text-shadow: none;
 }
 
 tooltip * {
-  color: #D2B48C;
+  color: #ebdbb2;
   text-shadow: none;
 }
 
@@ -226,11 +226,11 @@ tooltip * {
 #custom-cmus-next,
 #custom-cmusartist,
 #custom-cmussong {
-    color: #D2B48C
+    color: #ebdbb2
 }
 
 #custom-power-menu {
-    color: #D2B48C;
+    color: #ebdbb2;
     background: #fb4934;
     border-radius: 15px;
     margin: 5px;

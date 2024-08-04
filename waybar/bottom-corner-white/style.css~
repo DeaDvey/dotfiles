@@ -18,7 +18,7 @@ window#waybar {
 }
 
 window#waybar {
-  border-radius: 0px 0px 15px 15px;
+  border-radius: 0px 0px 16px 16px;
 }
 
 window#waybar {
